@@ -49,7 +49,7 @@ async function findPrice(url) {
         const content = await download(url);
         const dom = new JSDOM(content);
         const price = dom.window.document.querySelector('p.alpha').textContent;
-        return price;
+        return price.replaceAll(" Kč", "");
     } catch (error) {
         console.error(`Error in finding price for ${url}: ${error}`);
         return null;
