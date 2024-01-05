@@ -1,0 +1,23 @@
+{
+  "name": "url-html-content-fetcher",
+  "version": "1.0.0",
+  "description": "Fetches HTML content from URLs in a given CSV and extracts specific data.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js input.csv output.csv"
+  },
+  "keywords": [
+    "HTML",
+    "fetch",
+    "CSV",
+    "node"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^5.5.3",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "jsdom": "^23.1.0"
+  }
+}
