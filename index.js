@@ -23,7 +23,7 @@ const csvWriter = createCsvWriter({
     path: outputCSV,
     header: [
         { id: 'id', title: 'Registrační číslo' },
-        { id: 'price', title: 'PRICE' }
+        { id: 'price', title: 'Cena Kytary.cz' }
     ]
 });
 
@@ -66,8 +66,9 @@ async function processCSV() {
         .on('end', async () => {
             const results = [];
             for (const record of records) {
-                const price = await findPrice(record[]);
-                results.push({ id: record["Registrační číslo"], price: price });
+                console.log("Processing URL: " + record[urlcolumn]);
+                const price = await findPrice(record[urlcolumn]);
+                results.push({ id: record[idcolumn], price: price });
             }
             csvWriter.writeRecords(results)
                 .then(() => console.log('The CSV file was written successfully'));
